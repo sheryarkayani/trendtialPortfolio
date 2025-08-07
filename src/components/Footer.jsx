@@ -26,11 +26,11 @@ const Footer = () => {
                   <path d="M1278 524 c-35 -19 -48 -43 -48 -92 0 -33 6 -45 32 -67 27 -23 39 -26 72 -22 98 13 120 145 31 182 -42 18 -53 18 -87 -1z" />
                 </g>
               </svg>
-              <span className="mt-1 text-white">Trendtial</span>
+              <span className="mt-1 text-white">Trendtial For Creators</span>
             </div>
 
             <p className="text-sm mt-3 w-[60%]">
-            Trendtial Marketing leverages data-driven strategies and creative solutions to help businesses grow. With cutting-edge technology and innovative storytelling, we deliver tailored campaigns that boost engagement, build brand loyalty, and drive ROI. From digital marketing to branding and analytics, we are your partner for measurable results.
+            We specialize in transforming busy founders into influential thought leaders through our premium done-for-you social media marketing services. Your personal brand is your most valuable asset - let us help you turn it into revenue through strategic content creation, profile optimization, and authentic storytelling that resonates with your audience.
             </p>
           </div>
 
@@ -90,7 +90,7 @@ const Footer = () => {
 
             {/* Copyright Section */}
             <div className="mt-4">
-              <p>© 2024 Trendtial Marketing Inc.</p>
+              <p>© 2024 Trendtial For Creators Inc.</p>
             </div>
           </div>
         </div>

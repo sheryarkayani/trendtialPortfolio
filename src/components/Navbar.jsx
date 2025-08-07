@@ -43,7 +43,7 @@ const Navbar = () => {
                 />
               </g>
             </svg>
-            <span className="mt-1">Trendtial</span>
+            <span className="mt-1">Trendtial For Creators</span>
           </div>
         </Link>
         <div className="hidden md:flex items-center space-x-8">

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { FaArrowTrendUp, FaGlobe } from "react-icons/fa6";
-import { SiShopify, SiSimpleanalytics } from "react-icons/si";
-import { SlEnergy } from "react-icons/sl";
+import { FaInstagram, FaLinkedin, FaRobot, FaUsers, FaDollarSign } from "react-icons/fa";
+import { MdOutlineContentPaste } from "react-icons/md";
 
 const FeatureCard = ({ title, description, icon }) => (
   <div className="p-6 rounded-xl bg-[#1a1d2352] border border-white/10">
@@ -20,38 +19,35 @@ const FeatureCard = ({ title, description, icon }) => (
 const Features = () => {
   const features = [
     {
-      title: "Social Media Marketing",
-      description: "Supercharge your social media presence with our expert strategies.",
-      icon: <SlEnergy size={20} color="black" />,
+      title: "Personal Brand Content Creation",
+      description: "Transform your expertise into viral content with our done-for-you monthly social media marketing that turns founders into thought leaders.",
+      icon: <MdOutlineContentPaste size={20} color="black" />,
     },
     {
-      title: "SEO Optimization",
-      description: "Boost your search engine rankings and drive organic traffic to your website.",
-      icon: <FaArrowTrendUp size={20} color="black" />,
+      title: "LinkedIn Personal Branding",
+      description: "Build authority and generate leads with our proven LinkedIn strategy that has generated 100+ million views for 200+ clients.",
+      icon: <FaLinkedin size={20} color="black" />,
     },
     {
-      title: "Data Analytics",
-      description: "Make informed decisions with our advanced data analysis and reporting tools.",
-      icon: <SiSimpleanalytics size={20} color="black" />,
+      title: "Instagram Growth & Monetization",
+      description: "Convert your Instagram into a lead-generating machine with strategic content that attracts your ideal audience and drives sales.",
+      icon: <FaInstagram size={20} color="black" />,
     },
     {
-      title: "Web Development",
-      description: "Create a stunning website that converts visitors into customers.",
-      icon: <FaGlobe size={20} color="black" />,
+      title: "AI-Powered Lead Generation",
+      description: "Automate your sales process with AI chatbots, email sequences, and smart follow-ups that convert prospects into paying clients 24/7.",
+      icon: <FaRobot size={20} color="black" />,
     },
-
     {
-      title: "Shopify",
-      description: "Get your Shopify store up and running with our expert development services.",
-      icon: <SiShopify size={20} color="black" />,
+      title: "Content Monetization Strategy",
+      description: "Turn your expertise into profitable digital products, courses, and communities with our complete product development and launch strategy.",
+      icon: <FaDollarSign size={20} color="black" />,
     },
-
     {
-      title: "E-Commerce",
-      description: "Launch and grow your online store with our powerful e-commerce solutions.",
-      icon: <FaArrowTrendUp size={20} color="black" />,
+      title: "Multi-Platform Outreach",
+      description: "Expand your network through targeted LinkedIn outreach for B2B, Instagram PR campaigns, and creator partnerships for UGC content.",
+      icon: <FaUsers size={20} color="black" />,
     },
-
   ];
 
   return (

@@ -26,12 +26,11 @@ const Hero = () => {
       />
       <div className="relative max-w-7xl mx-auto px-6 text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 pt-12">
-          Your go-to <br />
-          <span className="text-gray-400">Marketing Expert</span>
+          Are you a busy founder who wants to <br />
+          <span className="text-red-500">GROW & SELL ON SOCIAL MEDIA</span>
         </h1>
-        <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-          Supercharge your digital presence with Trendtial{"'"}s cutting-edge
-          strategies.
+        <p className="text-gray-400 text-lg mb-8 max-w-3xl mx-auto">
+          You are at the right place, as we believe everyone has a story worth telling and we make sure yours gets heard through our Done for you monthly social media marketing services.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-3">
           <button
