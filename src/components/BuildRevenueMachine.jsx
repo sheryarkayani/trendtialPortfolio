@@ -1,51 +1,125 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaRocket, FaComments, FaEnvelope, FaMagnet, FaRobot, FaBullseye, FaChartLine } from 'react-icons/fa';
 
-const ServiceCard = ({ service, isSelected, onClick }) => (
+const ServiceCard = ({ service, isSelected, onClick, index }) => (
   <motion.div
-    whileHover={{ scale: 1.02 }}
-    className={`p-6 rounded-xl border cursor-pointer transition-all duration-300 ${
-      isSelected 
-        ? 'bg-red-500/20 border-red-500' 
-        : 'bg-[#1a1d2352] border-white/10 hover:border-red-500/30'
-    }`}
+    layout
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ 
+      duration: 0.6, 
+      delay: index * 0.1,
+      ease: [0.25, 0.4, 0.25, 1]
+    }}
+    whileHover={{ y: -8 }}
     onClick={onClick}
+    className={`relative cursor-pointer p-8 rounded-2xl border transition-all duration-500 ${
+      isSelected 
+        ? 'border-red-500/50 bg-red-500/5' 
+        : 'border-white/5 bg-black hover:border-white/10'
+    }`}
   >
-    <div className="text-3xl mb-4">{service.icon}</div>
-    <h3 className="text-lg font-semibold mb-2 text-white">{service.title}</h3>
-    <p className="text-gray-400 text-sm">{service.shortDescription}</p>
+    {/* Selected indicator */}
     {isSelected && (
-      <div className="mt-4 text-red-500 text-sm font-medium">
-        Click to view details →
-      </div>
+      <motion.div
+        layoutId="selectedIndicator"
+        className="absolute top-6 right-6 w-3 h-3 bg-red-500 rounded-full"
+        transition={{ duration: 0.3 }}
+      />
     )}
+    
+    <div className="flex items-start space-x-4">
+      <motion.div
+        animate={{ 
+          scale: isSelected ? 1.1 : 1,
+          rotate: isSelected ? 5 : 0 
+        }}
+        transition={{ duration: 0.3 }}
+        className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+          isSelected ? 'bg-red-500' : 'bg-white/10'
+        }`}
+      >
+        <div className={`text-xl ${isSelected ? 'text-white' : 'text-red-400'}`}>
+          {service.iconComponent}
+        </div>
+      </motion.div>
+      
+      <div className="flex-1">
+        <h3 className="text-lg font-semibold text-white mb-2">{service.title}</h3>
+        <p className="text-gray-400 text-sm leading-relaxed">
+          {service.shortDescription}
+        </p>
+      </div>
+    </div>
   </motion.div>
 );
 
 const ServiceDetail = ({ service }) => (
-  <div className="bg-[#1a1d2352] border border-white/10 rounded-xl p-8 h-fit sticky top-8">
-    <div className="flex items-center mb-6">
-      <div className="text-4xl mr-4">{service.icon}</div>
-      <h3 className="text-2xl font-bold text-white">{service.title}</h3>
-    </div>
-    <div className="text-gray-300 leading-relaxed space-y-4">
-      {service.detailedDescription.split('\n\n').map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
-      ))}
-    </div>
-    {service.bulletPoints && (
-      <div className="mt-6">
-        <ul className="space-y-2">
-          {service.bulletPoints.map((point, index) => (
-            <li key={index} className="text-gray-300 flex items-start">
-              <span className="text-red-500 mr-2">•</span>
-              {point}
-            </li>
+  <AnimatePresence mode="wait">
+    <motion.div
+      key={service.title}
+      initial={{ opacity: 0, x: 40 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -40 }}
+      transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
+      className="sticky top-8"
+    >
+      <div className="bg-black border border-white/5 rounded-3xl p-10 h-fit">
+        
+        {/* Header */}
+        <div className="flex items-center mb-8">
+          <motion.div
+            animate={{ rotate: [0, 5, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mr-6"
+          >
+            <div className="text-white text-2xl">{service.iconComponent}</div>
+          </motion.div>
+          <h3 className="text-2xl font-bold text-white">{service.title}</h3>
+        </div>
+        
+        {/* Description */}
+        <div className="text-gray-300 leading-relaxed space-y-6 mb-8">
+          {service.detailedDescription.split('\n\n').map((paragraph, index) => (
+            <motion.p
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.5 }}
+            >
+              {paragraph}
+            </motion.p>
           ))}
-        </ul>
+        </div>
+        
+        {/* Bullet points */}
+        {service.bulletPoints && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="space-y-4"
+          >
+            {service.bulletPoints.map((point, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 * index, duration: 0.5 }}
+                className="flex items-start"
+              >
+                <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2.5 mr-4 flex-shrink-0" />
+                <span className="text-gray-300 text-sm leading-relaxed">
+                  {point}
+                </span>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
       </div>
-    )}
-  </div>
+    </motion.div>
+  </AnimatePresence>
 );
 
 const BuildRevenueMachine = () => {
@@ -53,101 +127,116 @@ const BuildRevenueMachine = () => {
 
   const services = [
     {
-      title: "Lead-Generating Instagram Stories",
-      shortDescription: "Instagram Stories that drive action and conversions",
-      icon: "📱",
-      detailedDescription: "Instagram Stories are a powerful tool to engage your audience and drive conversions. We craft high-impact Stories with clear calls to action (CTAs), encouraging your audience to take the next step—whether it's joining your email list, downloading your lead magnet, signing up for your course or free trial, or making a purchase.\n\nWe also leverage interactive features like polls, quizzes, and swipe-up links to boost engagement and keep your brand top-of-mind, ensuring your message reaches the right people at the right time."
+      title: "Instagram Stories",
+      shortDescription: "High-impact Stories that drive conversions",
+      iconComponent: <FaRocket />,
+      detailedDescription: "Craft high-impact Stories with clear CTAs to drive action—email signups, course enrollments, or purchases.\n\nLeverage polls, quizzes, and interactive features to boost engagement and keep your brand top-of-mind."
     },
     {
-      title: "Strategic LinkedIn Comments",
-      shortDescription: "Boost your LinkedIn visibility with strategic commenting",
-      icon: "💬",
-      detailedDescription: "Commenting on other people's posts is a powerful way to get noticed and increase your visibility. We help you craft valuable, insightful comments that add meaningful contributions to conversations, sparking engagement and positioning you as a thought leader in your field.\n\nBy consistently posting thoughtful responses on relevant content, you'll attract attention from your target audience, expand your network, and elevate your personal brand—without being overly promotional."
+      title: "LinkedIn Comments",
+      shortDescription: "Strategic commenting for visibility",
+      iconComponent: <FaComments />,
+      detailedDescription: "Craft valuable, insightful comments that position you as a thought leader.\n\nConsistent thoughtful responses attract your target audience and expand your network organically."
     },
     {
-      title: "Email Marketing Setup",
-      shortDescription: "Nurture your leads with automated email sequences",
-      icon: "📧",
-      detailedDescription: "Email marketing is key to building strong relationships with your leads and driving conversions. We set up automated email sequences that nurture your leads, keeping them engaged with personalized content at every stage of their journey.\n\nFrom welcome emails to post-purchase follow-ups, with segmentation, personalization, and strategically timed follow-ups, we build relationships that lead to conversions, ensuring no lead is left behind."
+      title: "Email Marketing",
+      shortDescription: "Automated sequences that nurture leads",
+      iconComponent: <FaEnvelope />,
+      detailedDescription: "Set up automated email sequences with personalized content at every stage.\n\nFrom welcome emails to follow-ups, we build relationships that convert leads into customers."
     },
     {
-      title: "Lead Magnets Creation",
-      shortDescription: "Write and design irresistible lead magnets",
-      icon: "🧲",
-      detailedDescription: "Lead magnets are the gateway to building your email list and nurturing your audience. We don't just create any lead magnet—we write and design high-value irresistible offers that speak directly to your audience's pain points.\n\nFrom eBooks and checklists to webinars and templates, we create lead magnets that solve problems and drive immediate action."
+      title: "Lead Magnets",
+      shortDescription: "Irresistible offers that capture leads",
+      iconComponent: <FaMagnet />,
+      detailedDescription: "Design high-value offers that speak to your audience's pain points.\n\nFrom eBooks to templates, we create lead magnets that solve problems and drive immediate action."
     },
     {
       title: "AI Automations",
-      shortDescription: "Streamline communication with AI-driven automation",
-      icon: "🤖",
-      detailedDescription: "AI-driven automation is revolutionizing how businesses communicate with their audience, offering powerful tools that streamline interactions and boost efficiency. We can integrate AI tools that can instantly handle customer queries, qualify leads, and even book appointments or make sales in real-time, providing a seamless experience without manual effort.",
+      shortDescription: "Streamline communication with AI",
+      iconComponent: <FaRobot />,
+      detailedDescription: "Integrate AI tools for instant customer queries, lead qualification, and appointment booking.",
       bulletPoints: [
-        "Lead Qualification: Automatically qualify leads by asking targeted questions",
-        "Customer Support Automation: Provide 24/7 support by answering common questions",
-        "Appointment Scheduling: AI tools can handle appointment bookings",
-        "Automated Social Media Replies: Respond instantly to comments and DMs",
-        "Sales and Follow-Up Sequences: Automate follow-up emails based on lead behavior",
-        "Personalized Content Delivery: Send personalized content based on user behavior"
+        "Automated lead qualification and segmentation",
+        "24/7 customer support automation", 
+        "Smart appointment scheduling",
+        "Social media reply automation",
+        "Personalized content delivery"
       ]
     },
     {
       title: "Outbound Marketing",
-      shortDescription: "Targeted outreach strategies that deliver results",
-      icon: "🎯",
-      detailedDescription: "Outbound marketing and sales is essential for expanding your network and driving business growth. We specialize in creating targeted, high-converting outreach strategies across multiple platforms to ensure your brand connects with the right people.",
+      shortDescription: "Targeted outreach that delivers results",
+      iconComponent: <FaBullseye />,
+      detailedDescription: "Create targeted, high-converting outreach strategies across platforms.",
       bulletPoints: [
-        "LinkedIn Lead generation & Outreach for Tech & B2B SaaS Founders",
-        "Instagram Outreach for PR Campaigns and brand collaborations",
-        "Creator Outreach for UGC Videos and authentic content",
-        "10 messages every day, 300 per month - sustainable lead pipeline",
-        "No automations used on your main account for safety"
+        "LinkedIn outreach for B2B founders",
+        "Instagram PR campaigns",
+        "Creator partnerships for UGC",
+        "10 daily messages, 300/month pipeline",
+        "No automation on main accounts"
       ]
     },
     {
-      title: "Inbound Sales Optimization",
-      shortDescription: "Maximize inbound sales with proven strategies",
-      icon: "📈",
-      detailedDescription: "Turn inbound leads into sales with automated follow-ups, personalized sales frameworks, and dedicated setters. We optimize every part of your inbound process, from lead qualification to closing strategies, ensuring your leads convert into long-term clients.",
+      title: "Inbound Sales",
+      shortDescription: "Optimize your sales funnel",
+      iconComponent: <FaChartLine />,
+      detailedDescription: "Turn inbound leads into sales with proven frameworks and automation.",
       bulletPoints: [
-        "Dedicated Sales Setters: Handle qualifying and setting appointments",
-        "Personalized Sales Frameworks: Customized scripts and engagement strategies",
-        "Automated Follow-Ups: AI-driven automation ensures no lead falls through",
-        "Lead qualification and nurturing at every stage",
-        "Focus on converting leads into long-term clients"
+        "Dedicated sales setters",
+        "Personalized sales frameworks",
+        "Automated follow-up sequences",
+        "Lead qualification systems",
+        "Long-term client conversion focus"
       ]
     }
   ];
 
   return (
-    <section className="py-20 bg-black text-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Build Revenue Machine</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Comprehensive solutions to transform your business into a revenue-generating machine
-          </p>
-          <div className="flex justify-center gap-2 mt-3">
-            <div className="w-2 h-2 rounded-full bg-red-500" />
-            <div className="w-2 h-2 rounded-full bg-red-500" />
-            <div className="w-2 h-2 rounded-full bg-red-500" />
-          </div>
-        </div>
+    <section className="py-32 bg-black relative">
+      
+      <div className="max-w-7xl mx-auto px-8 relative z-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* Clean header */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl font-bold mb-6 text-white">
+            Revenue Machine
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Transform your business into a revenue-generating machine
+          </p>
+          
+          {/* Simple divider */}
+          <motion.div 
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+            className="h-px bg-red-500 mx-auto mt-8"
+          />
+        </motion.div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          
+          {/* Services List */}
+          <div className="lg:col-span-2 space-y-4">
             {services.map((service, index) => (
               <ServiceCard
                 key={index}
                 service={service}
                 isSelected={selectedService === index}
                 onClick={() => setSelectedService(index)}
+                index={index}
               />
             ))}
           </div>
           
           {/* Service Details */}
-          <div>
+          <div className="lg:col-span-3">
             <ServiceDetail service={services[selectedService]} />
           </div>
         </div>

@@ -1,100 +1,207 @@
-import { FaFacebook, FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaEnvelope, FaPhone, FaLinkedin, FaInstagram, FaTwitter, FaRocket } from 'react-icons/fa';
 
 const Footer = () => {
+  const quickLinks = ['Services', 'Process', 'Pricing', 'FAQ'];
+  const services = [
+    'Personal Branding',
+    'Content Creation', 
+    'Social Media Management',
+    'Lead Generation',
+    'Email Marketing',
+    'AI Automation'
+  ];
+
   return (
-    <footer className="bg-[#000000e6] border-red-400 border-t relative text-gray-400 py-8">
-      <div className="container mx-auto px-6 md:px-12 lg:px-20">
-        <div className="flex flex-wrap justify-between items-start">
-          {/* Logo Section */}
-          <div className="mb-6 md:mb-0 w-full md:w-[60%]">
-            <div className="text-2xl font-bold flex items-center space-x-2">
-              <svg
-                version="1.0"
-                xmlns="http://www.w3.org/2000/svg"
-                width="30.000000pt"
-                height="30.000000pt"
-                viewBox="0 0 181.000000 195.000000"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                <g
-                  transform="translate(0.000000,195.000000) scale(0.100000,-0.100000)"
-                  fill="#dc2625"
-                  stroke="none"
-                >
-                  <path d="M487 1563 c-4 -3 -7 -235 -7 -515 0 -561 -2 -543 64 -616 47 -52 115 -84 170 -80 l41 3 0 75 0 74 -38 9 c-23 6 -45 20 -57 37 -19 27 -20 42 -18 247 l3 218 75 5 75 5 3 82 3 82 -78 3 -78 3 -3 188 -2 187 -74 0 c-40 0 -76 -3 -79 -7z" />
-                  <path d="M1233 1171 c-113 -39 -216 -132 -264 -239 -13 -30 -24 -84 -30 -147 -10 -111 -9 -418 1 -435 4 -7 35 -10 81 -8 l74 3 5 245 c4 206 8 250 22 276 47 86 118 137 220 158 l63 13 3 76 3 77 -63 0 c-35 -1 -86 -9 -115 -19z" />
-                  <path d="M1278 524 c-35 -19 -48 -43 -48 -92 0 -33 6 -45 32 -67 27 -23 39 -26 72 -22 98 13 120 145 31 182 -42 18 -53 18 -87 -1z" />
-                </g>
-              </svg>
-              <span className="mt-1 text-white">Trendtial For Creators</span>
-            </div>
-
-            <p className="text-sm mt-3 w-[60%]">
-            We specialize in transforming busy founders into influential thought leaders through our premium done-for-you social media marketing services. Your personal brand is your most valuable asset - let us help you turn it into revenue through strategic content creation, profile optimization, and authentic storytelling that resonates with your audience.
+    <footer className="bg-black text-white relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-gradient-to-t from-red-500/5 via-transparent to-transparent" />
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Main footer content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-16">
+          {/* Company Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="lg:col-span-1"
+          >
+            <motion.h3
+              whileHover={{ scale: 1.05 }}
+              className="text-2xl font-bold mb-4 text-red-400"
+            >
+              Trendtial
+            </motion.h3>
+            <p className="text-gray-400 leading-relaxed mb-6">
+              A boutique agency that specializes in Personal branding, content marketing, and public relations for founders. We help you go from unknown to unforgettable.
             </p>
-          </div>
-
-          {/* Social Links Section */}
-          <div className="w-full md:w-[35%] flex flex-col items-start md:items-end space-y-4">
-            <h3 className="text-lg text-white">Follow Us</h3>
+            
+            {/* Social Links */}
             <div className="flex space-x-4">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition"
-                aria-label="Facebook"
-              >
-                <FaFacebook size={20}/>
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition"
-                aria-label="X"
-              >
-                <FaXTwitter size={20}/> 
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin size={20}/>
-              </a>
-               <a
-                href="#"
-                className="text-gray-400 hover:text-white transition"
-                aria-label="Instagram"
-              >
-                <FaInstagram size={20}/>
-              </a>
-           
+              {[FaLinkedin, FaInstagram, FaTwitter].map((Icon, index) => (
+                <motion.a
+                  key={index}
+                  href="#"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  className="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center text-red-400 hover:bg-red-500 hover:text-white transition-all duration-300"
+                >
+                  <Icon size={18} />
+                </motion.a>
+              ))}
             </div>
-          </div>
+          </motion.div>
+
+          {/* Quick Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link, index) => (
+                <motion.li
+                  key={index}
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <a 
+                    href={`#${link.toLowerCase()}`}
+                    className="text-gray-400 hover:text-red-400 transition-colors duration-300 cursor-pointer"
+                  >
+                    {link}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Services */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="text-lg font-semibold mb-6 text-white">Services</h4>
+            <ul className="space-y-3">
+              {services.map((service, index) => (
+                <motion.li
+                  key={index}
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span className="text-gray-400 hover:text-red-400 transition-colors duration-300 cursor-pointer">
+                    {service}
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="text-lg font-semibold mb-6 text-white">Get In Touch</h4>
+            <div className="space-y-4">
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                className="flex items-center space-x-3"
+              >
+                <div className="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center">
+                  <FaEnvelope className="text-red-400 text-sm" />
+                </div>
+                <a 
+                  href="mailto:hello@trendtial.com"
+                  className="text-gray-400 hover:text-red-400 transition-colors duration-300"
+                >
+                  hello@trendtial.com
+                </a>
+              </motion.div>
+              
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                className="flex items-center space-x-3"
+              >
+                <div className="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center">
+                  <FaPhone className="text-red-400 text-sm" />
+                </div>
+                <a 
+                  href="tel:+15551234567"
+                  className="text-gray-400 hover:text-red-400 transition-colors duration-300"
+                >
+                  +1 (555) 123-4567
+                </a>
+              </motion.div>
+            </div>
+            
+            {/* CTA Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-6 bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center space-x-2 hover:shadow-lg hover:shadow-red-500/30 transition-all duration-300"
+            >
+              <FaRocket size={16} />
+              <span>Book A Call Now</span>
+            </motion.button>
+          </motion.div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="relative mt-8 pt-6 text-sm text-center md:text-left">
-          <div className="border-t border-gray-700 absolute top-0 left-0 w-full"></div>
-          <div className="flex flex-col mt-8">
-            {/* Terms and Policies */}
-            <div className="flex space-x-4 mb-4 md:mb-0">
-              <a href="#" className="hover:text-white">
-                Terms of Use
-              </a>
-              <a href="#" className="hover:text-white">
-                Responsible Disclosure
-              </a>
-              <a href="#" className="hover:text-white">
+        {/* Footer bottom */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="border-t border-white/10 py-8"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-center md:text-left">
+              © 2025 Trendtial. All rights reserved.
+            </p>
+            
+            <div className="flex space-x-6">
+              <a 
+                href="#" 
+                className="text-gray-400 hover:text-red-400 transition-colors duration-300 text-sm"
+              >
                 Privacy Policy
               </a>
-            </div>
-
-            {/* Copyright Section */}
-            <div className="mt-4">
-              <p>© 2024 Trendtial For Creators Inc.</p>
+              <a 
+                href="#" 
+                className="text-gray-400 hover:text-red-400 transition-colors duration-300 text-sm"
+              >
+                Terms of Service
+              </a>
             </div>
           </div>
-        </div>
+          
+          {/* Tagline */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mt-6"
+          >
+            <p className="text-red-400 font-medium italic">
+              Corporate brands die, personal brands compound. Build yours now or get left behind.
+            </p>
+          </motion.div>
+        </motion.div>
       </div>
+      
+      {/* Floating particles */}
+      <div className="absolute top-20 right-20 w-2 h-2 bg-red-500/30 rounded-full animate-pulse" />
+      <div className="absolute bottom-20 left-20 w-1 h-1 bg-red-400/40 rounded-full animate-ping" />
     </footer>
   );
 };

@@ -1,60 +1,125 @@
 import { motion } from "framer-motion";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaCheck } from "react-icons/fa";
+import React from "react"; // Added missing import for React
 
-const FeatureCard = ({ title, description, icon, stats }) => (
-  <div className="p-6 rounded-xl bg-[#1a1d2352] border border-white/10">
-    <motion.div
-      whileHover={{ scale: 1.06 }} 
-      transition={{ duration: 0.3 }} 
-      className="rounded-lg w-max p-2 mb-6 border bg-gray-100 flex justify-center items-center"
-    >
-      {icon}
-    </motion.div>
-    <h3 className="text-lg font-semibold mb-2">{title}</h3>
-    <p className="text-gray-400 text-sm mb-4">{description}</p>
-    {stats && (
-      <div className="text-red-500 text-sm font-medium">
-        {stats}
+const FeatureCard = ({ title, description, icon, stats, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 60 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ 
+      duration: 0.8, 
+      delay: index * 0.3,
+      ease: [0.25, 0.4, 0.25, 1]
+    }}
+    viewport={{ once: true }}
+    className="group relative"
+  >
+    {/* Minimalist card */}
+    <div className="relative bg-black border border-white/5 rounded-3xl p-12 h-full transition-all duration-700 hover:border-white/10">
+      
+      {/* Subtle glow on hover */}
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      
+      {/* Icon with purpose */}
+      <div className="relative mb-8">
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-2xl"
+        >
+          {React.cloneElement(icon, { size: 28 })}
+        </motion.div>
       </div>
-    )}
-  </div>
+      
+      {/* Content hierarchy */}
+      <div className="relative z-10">
+        <h3 className="text-2xl font-semibold mb-6 text-white leading-tight">
+          {title}
+        </h3>
+        
+        <p className="text-gray-400 text-base leading-relaxed mb-8">
+          {description}
+        </p>
+        
+        {/* Stats with meaning */}
+        {stats && (
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8 + index * 0.3, duration: 0.6 }}
+            className="flex items-center space-x-3"
+          >
+            <div className="w-5 h-5 rounded-full bg-red-500 flex items-center justify-center">
+              <FaCheck size={10} className="text-white" />
+            </div>
+            <span className="text-red-400 font-medium text-sm">{stats}</span>
+          </motion.div>
+        )}
+      </div>
+    </div>
+  </motion.div>
 );
 
 const Features = () => {
   const features = [
     {
       title: "LinkedIn Personal Branding",
-      description: "We specialize in transforming your expertise into a powerful personal brand that attracts the right opportunities. We craft content that not only boosts your visibility but also positions you as an authority in your field, ensuring your profile stands out to the right people. Let us help you build a brand that opens doors and drives results.",
-      icon: <FaLinkedin size={20} color="black" />,
-      stats: "80+ clients, 10 million views generated"
+      description: "Transform your expertise into a powerful personal brand that attracts opportunities. We position you as an authority in your field, ensuring your profile stands out to the right people.",
+      icon: <FaLinkedin color="black" />,
+      stats: "80+ clients • 10M+ views generated"
     },
     {
-      title: "Instagram Personal Branding",
-      description: "As a business owner, growing your Instagram isn't just about posting – it's about building a personal brand that attracts your ideal audience and converts them into loyal clients. We understand the pain points of slow follower growth and low engagement. We craft a personal branding strategy that turns your Instagram into a powerful, lead-generating machine.",
-      icon: <FaInstagram size={20} color="black" />,
-      stats: "Ready to invest 2 hours per month? We can sort this for you!"
+      title: "Instagram Personal Branding", 
+      description: "Build a personal brand that attracts your ideal audience and converts them into loyal clients. Turn your Instagram into a powerful, lead-generating machine.",
+      icon: <FaInstagram color="black" />,
+      stats: "Just 2 hours/month investment required"
     },
   ];
 
   return (
-    <section id="features" className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-white">
-            What All Do We Offer
+    <section id="features" className="py-32 bg-black relative">
+      
+      <div className="max-w-6xl mx-auto px-8 relative z-10">
+        
+        {/* Clean header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl font-bold mb-6 text-white">
+            What We Offer
           </h2>
-          <div className="flex justify-center gap-2 mt-3">
-            <div className="w-2 h-2 rounded-full bg-red-500" />
-            <div className="w-2 h-2 rounded-full bg-red-500" />
-            <div className="w-2 h-2 rounded-full bg-red-500" />
-          </div>
-        </div>
+          
+          {/* Simple, elegant divider */}
+          <motion.div 
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+            className="h-px bg-red-500 mx-auto"
+          />
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Two-column grid with proper spacing */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} />
+            <FeatureCard key={index} {...feature} index={index} />
           ))}
         </div>
+        
+        {/* Subtle call to action */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="text-center mt-20"
+        >
+          <p className="text-gray-400 text-lg">
+            Ready to transform your personal brand?
+          </p>
+        </motion.div>
       </div>
     </section>
   );
