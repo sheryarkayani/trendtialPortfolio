@@ -32,21 +32,14 @@ const Hero = () => {
         <p className="text-gray-400 text-lg mb-8 max-w-3xl mx-auto">
           You are at the right place, as we believe everyone has a story worth telling and we make sure yours gets heard through our Done for you monthly social media marketing services.
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-3">
+        <div className="flex justify-center">
           <button
-            onClick={() =>
-              (window.location.href =
-                "mailto:trendtial@gmail.com?subject=Hi Trendtial")
-            }
+            data-cal-namespace="30min"
+            data-cal-link="trendtial-creators/30min"
+            data-cal-config='{"layout":"month_view","theme":"dark"}'
             className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg transition-colors"
           >
             Book a call
-          </button>
-          <button
-            onClick={() => (document.location.href = "/projects")}
-            className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg text-lg transition-colors"
-          >
-            See our work
           </button>
         </div>
       </div>

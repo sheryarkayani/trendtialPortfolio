@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,31 +47,10 @@ const Navbar = () => {
           </div>
         </Link>
         <div className="hidden md:flex items-center space-x-8">
-          <a
-            href="/team"
-            className="text-sm text-gray-400 hover:text-white transition-colors"
-          >
-            Who we are?
-          </a>
-          <a
-            href="/#features"
-            className="text-sm text-gray-400 hover:text-white transition-colors"
-          >
-            What we do?
-          </a>
-
-          <a
-              href="/projects"
-              className="block text-sm text-gray-400 hover:text-white transition-colors py-2 px-4"
-              >
-                Portfolio
-            </a>
-
           <button
-            onClick={() =>
-              (window.location.href =
-                "mailto:trendtial@gmail.com?subject=Hi Trendtial")
-            }
+            data-cal-namespace="30min"
+            data-cal-link="trendtial-creators/30min"
+            data-cal-config='{"layout":"month_view","theme":"dark"}'
             className="bg-white/10 hover:bg-white/20 text-sm text-white px-4 py-2 rounded-lg transition-colors"
           >
             Book a call
@@ -101,31 +80,10 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a
-              href="/team"
-              className="block text-sm text-gray-400 hover:text-white transition-colors py-2 px-4"
-            >
-              Who we are?
-            </a>
-            <a
-              href="/#features"
-              className="block text-sm text-gray-400 hover:text-white transition-colors py-2 px-4"
-            >
-              What we do?
-            </a>
-
-            <a
-              href="/projects"
-              className="block text-sm text-gray-400 hover:text-white transition-colors py-2 px-4"
-              >
-                Portfolio
-            </a>
-
             <button
-              onClick={() =>
-                (window.location.href =
-                  "mailto:trendtial@gmail.com?subject=Hi Trendtial")
-              }
+              data-cal-namespace="30min"
+              data-cal-link="trendtial-creators/30min"
+              data-cal-config='{"layout":"month_view","theme":"dark"}'
               className="block w-full text-left bg-white/10 hover:bg-white/20 text-sm text-white px-4 py-2 rounded-lg transition-colors mt-2"
             >
               Book a call
