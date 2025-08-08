@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { FaInstagram, FaLinkedin, FaRobot, FaUsers, FaDollarSign } from "react-icons/fa";
-import { MdOutlineContentPaste } from "react-icons/md";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
-const FeatureCard = ({ title, description, icon }) => (
+const FeatureCard = ({ title, description, icon, stats }) => (
   <div className="p-6 rounded-xl bg-[#1a1d2352] border border-white/10">
     <motion.div
       whileHover={{ scale: 1.06 }} 
@@ -12,41 +11,28 @@ const FeatureCard = ({ title, description, icon }) => (
       {icon}
     </motion.div>
     <h3 className="text-lg font-semibold mb-2">{title}</h3>
-    <p className="text-gray-400 text-sm">{description}</p>
+    <p className="text-gray-400 text-sm mb-4">{description}</p>
+    {stats && (
+      <div className="text-red-500 text-sm font-medium">
+        {stats}
+      </div>
+    )}
   </div>
 );
 
 const Features = () => {
   const features = [
     {
-      title: "Personal Brand Content Creation",
-      description: "Transform your expertise into viral content with our done-for-you monthly social media marketing that turns founders into thought leaders.",
-      icon: <MdOutlineContentPaste size={20} color="black" />,
-    },
-    {
       title: "LinkedIn Personal Branding",
-      description: "Build authority and generate leads with our proven LinkedIn strategy that has generated 100+ million views for 200+ clients.",
+      description: "We specialize in transforming your expertise into a powerful personal brand that attracts the right opportunities. We craft content that not only boosts your visibility but also positions you as an authority in your field, ensuring your profile stands out to the right people. Let us help you build a brand that opens doors and drives results.",
       icon: <FaLinkedin size={20} color="black" />,
+      stats: "80+ clients, 10 million views generated"
     },
     {
-      title: "Instagram Growth & Monetization",
-      description: "Convert your Instagram into a lead-generating machine with strategic content that attracts your ideal audience and drives sales.",
+      title: "Instagram Personal Branding",
+      description: "As a business owner, growing your Instagram isn't just about posting – it's about building a personal brand that attracts your ideal audience and converts them into loyal clients. We understand the pain points of slow follower growth and low engagement. We craft a personal branding strategy that turns your Instagram into a powerful, lead-generating machine.",
       icon: <FaInstagram size={20} color="black" />,
-    },
-    {
-      title: "AI-Powered Lead Generation",
-      description: "Automate your sales process with AI chatbots, email sequences, and smart follow-ups that convert prospects into paying clients 24/7.",
-      icon: <FaRobot size={20} color="black" />,
-    },
-    {
-      title: "Content Monetization Strategy",
-      description: "Turn your expertise into profitable digital products, courses, and communities with our complete product development and launch strategy.",
-      icon: <FaDollarSign size={20} color="black" />,
-    },
-    {
-      title: "Multi-Platform Outreach",
-      description: "Expand your network through targeted LinkedIn outreach for B2B, Instagram PR campaigns, and creator partnerships for UGC content.",
-      icon: <FaUsers size={20} color="black" />,
+      stats: "Ready to invest 2 hours per month? We can sort this for you!"
     },
   ];
 
@@ -54,19 +40,17 @@ const Features = () => {
     <section id="features" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">
-            We provide
-            <br />
-            <span className="text-gray-400">the best</span>
+          <h2 className="text-4xl font-bold mb-4 text-white">
+            What All Do We Offer
           </h2>
           <div className="flex justify-center gap-2 mt-3">
-            <div className="w-2 h-2 rounded-full bg-blue-500" />
-            <div className="w-2 h-2 rounded-full bg-blue-500" />
-            <div className="w-2 h-2 rounded-full bg-blue-500" />
+            <div className="w-2 h-2 rounded-full bg-red-500" />
+            <div className="w-2 h-2 rounded-full bg-red-500" />
+            <div className="w-2 h-2 rounded-full bg-red-500" />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {features.map((feature, index) => (
             <FeatureCard key={index} {...feature} />
           ))}

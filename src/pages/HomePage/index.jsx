@@ -1,5 +1,7 @@
 import Hero from "../../components/Hero";
 import Features from "../../components/Features";
+import WhoThisIsFor from "../../components/WhoThisIsFor";
+import BuildRevenueMachine from "../../components/BuildRevenueMachine";
 import DataVisuals from "../../components/DataVisuals";
 import OurProcess from "../../components/OurProcess";
 import Pricing from "../../components/Pricing";
@@ -12,6 +14,8 @@ const HomePage = () => {
     <main>
       <Hero />
       <Features />
+      <WhoThisIsFor />
+      <BuildRevenueMachine />
       <DataVisuals />
       <OurProcess />
       <Pricing />

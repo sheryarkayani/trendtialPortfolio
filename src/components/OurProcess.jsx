@@ -17,39 +17,33 @@ const OurProcess = () => {
   const steps = [
     {
       number: 1,
-      title: "Onboarding Call",
-      description: "We ask you 50-60 questions about your personal and professional life to help us get into your shoes and understand your stories",
-      icon: "📞"
+      title: "Discovery & Immersion",
+      description: "On an onboarding call, we get a thorough understanding of background, goals, and current brand perception by asking you 50-60 questions.",
+      icon: "🔍"
     },
     {
       number: 2,
-      title: "Profile Optimization",
-      description: "Our team will then work on your headline, bio, banner etc and give you, your optimisation in the next 24 hours.",
-      icon: "⚡"
+      title: "Research",
+      description: "We find and study the top creators/best performing content in your niche on social media and then craft a clear, actionable roadmap for your personal brand, including messaging, positioning, and visual identity.",
+      icon: "📊"
     },
     {
       number: 3,
-      title: "Content Pillars",
-      description: "We will be using our infamous funnel - TOFU, MOFU, BOFU to give you the perfect mix of topics that you will love.",
-      icon: "🎯"
+      title: "Profile Optimization and Script",
+      description: "Using the research and information on you and your business. We first work on your headline, bio and banner then write and design your text posts, carousels, and infographics and script an entire month of short form content.",
+      icon: "✏️"
     },
     {
       number: 4,
-      title: "Content Calendar",
-      description: "We share a notion board with you with content every Monday. Which means 0 stress about what to post next.",
-      icon: "📅"
+      title: "Film & Edit",
+      description: "You record the videos using just your phone and send them to us. We edit the videos and produce 30 days of short-form content aimed to: Nurture your audience. Pull in conversations for your setters, converting them into sales calls.",
+      icon: "🎬"
     },
     {
       number: 5,
-      title: "Graphics Approval",
-      description: "To communicate with you in real-time & churn content as per your requirements. We use this platform.",
-      icon: "✅"
-    },
-    {
-      number: 6,
-      title: "Progress Report",
-      description: "We track your progress weekly to understand what's working & then deep dive into those content pillars more.",
-      icon: "📊"
+      title: "Upload",
+      description: "We upload the content on your chosen social media channels (Instagram, TikTok, Facebook, LinkedIn, YouTube).",
+      icon: "🚀"
     }
   ];
 
@@ -63,7 +57,7 @@ const OurProcess = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {steps.map((step, index) => (
             <ProcessStep
               key={index}
