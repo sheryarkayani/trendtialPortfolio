@@ -127,8 +127,12 @@ const CaseStudies = () => {
   };
 
   return (
-    <section className="py-20 md:py-32 bg-black relative">
-      <div className="max-w-6xl mx-auto px-8">
+    <section className="py-20 md:py-32 bg-black relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-24 -right-24 w-80 h-80 bg-green-500/10 blur-3xl rounded-full" />
+        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-green-600/10 blur-3xl rounded-full" />
+      </div>
+      <div className="max-w-6xl mx-auto px-8 relative">
         
         {/* Header */}
         <motion.div
@@ -138,11 +142,11 @@ const CaseStudies = () => {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-20"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
             Case Studies
           </h2>
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto mb-8">
-            Transformative Personal Branding Journeys with Our Proven Services
+          <p className="text-gray-400 text-base md:text-xl max-w-3xl mx-auto mb-8">
+            Real growth from real founders. See how consistent content and positioning translated into reach, trust and revenue.
           </p>
           <motion.div 
             initial={{ width: 0 }}
@@ -162,6 +166,7 @@ const CaseStudies = () => {
           <div className="flex justify-center items-center space-x-6">
             <button
               onClick={prevStudy}
+              aria-label="Previous case study"
               className="p-3 rounded-full bg-gray-800 hover:bg-green-500/20 border border-gray-700 hover:border-green-500/50 transition-all duration-300"
             >
               <FaChevronLeft className="text-white" />
@@ -173,6 +178,7 @@ const CaseStudies = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentStudy(index)}
+                  aria-label={`Go to case study ${index + 1}`}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentStudy ? 'bg-green-500' : 'bg-gray-600'
                   }`}
@@ -182,10 +188,25 @@ const CaseStudies = () => {
             
             <button
               onClick={nextStudy}
+              aria-label="Next case study"
               className="p-3 rounded-full bg-gray-800 hover:bg-green-500/20 border border-gray-700 hover:border-green-500/50 transition-all duration-300"
             >
               <FaChevronRight className="text-white" />
             </button>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-10">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              data-cal-namespace="30min"
+              data-cal-link="trendtial-creators/30min"
+              data-cal-config='{"layout":"month_view","theme":"dark"}'
+              className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-xl font-semibold text-base md:text-lg transition-colors duration-300 shadow-lg shadow-green-500/20"
+            >
+              Get a tailored growth plan
+            </motion.button>
           </div>
         </div>
       </div>

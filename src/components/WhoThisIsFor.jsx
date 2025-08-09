@@ -15,28 +15,28 @@ const TargetCard = ({ title, description, iconComponent, index }) => (
     whileHover={{ y: -8 }}
     className="group relative"
   >
-    <div className="relative bg-black border border-white/5 rounded-2xl p-8 h-full transition-all duration-500 hover:border-red-500/20">
+    <div className="relative bg-black border border-white/5 rounded-2xl p-5 md:p-8 h-full transition-all duration-500 hover:border-red-500/20">
       
       {/* Subtle glow on hover */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/0 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       {/* Icon with purpose */}
-      <div className="relative mb-6">
+      <div className="relative mb-4 md:mb-6">
         <motion.div
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="w-14 h-14 bg-red-500 rounded-xl flex items-center justify-center"
+          className="w-12 h-12 md:w-14 md:h-14 bg-red-500 rounded-xl flex items-center justify-center"
         >
-          <div className="text-white text-xl">{iconComponent}</div>
+          <div className="text-white text-lg md:text-xl">{iconComponent}</div>
         </motion.div>
       </div>
       
       {/* Content */}
       <div className="relative z-10">
-        <h3 className="text-xl font-semibold mb-3 text-white leading-tight">
+        <h3 className="text-base md:text-xl font-semibold mb-1 md:mb-3 text-white leading-tight">
           {title}
         </h3>
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="hidden md:block text-gray-400 text-sm leading-relaxed">
           {description}
         </p>
       </div>
@@ -79,9 +79,9 @@ const WhoThisIsFor = () => {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-black relative">
+    <section className="py-16 md:py-32 bg-black relative">
       
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         
         {/* Clean header */}
         <motion.div
@@ -89,7 +89,7 @@ const WhoThisIsFor = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
           viewport={{ once: true }}
-          className="text-center mb-12 md:mb-20"
+          className="text-center mb-10 md:mb-20"
         >
           <h2 className="text-4xl font-bold mb-6 text-white">
             Who this is for
@@ -105,7 +105,7 @@ const WhoThisIsFor = () => {
         </motion.div>
         
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-10 md:mb-16">
           {targets.map((target, index) => (
             <TargetCard
               key={index}

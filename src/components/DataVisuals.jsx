@@ -78,8 +78,8 @@ const DataVisuals = () => {
               className="absolute top-[50%] left-[49%] flex justify-center w-full h-full"
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
-              width="150px"
-              height="150px"
+              width="120px"
+              height="120px"
               viewBox="0 0 181.000000 195.000000"
               preserveAspectRatio="xMidYMid meet"
             >
@@ -99,14 +99,14 @@ const DataVisuals = () => {
             <h3 className="text-xl font-semibold mb-4 md:mb-6 text-center">
               Your Vision
             </h3>
-            <div className="flex items-center justify-center aspect-square from-blue-500/20 to-transparent rounded-lg">
+            <div className="flex items-center justify-center aspect-[4/3] md:aspect-square from-blue-500/20 to-transparent rounded-lg">
               <svg
                 style={{
                   filter: "drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))",
                 }}
                 version="1.0"
                 xmlns="http://www.w3.org/2000/svg"
-                width="80%"
+                width="70%"
                 height="100%"
                 viewBox="0 0 745.000000 461.000000"
                 preserveAspectRatio="xMidYMid meet"
@@ -175,14 +175,14 @@ const DataVisuals = () => {
             <h3 className="text-xl font-semibold mb-4 md:mb-6 text-center">
               Our Execution
             </h3>
-            <div className="aspect-square flex justify-center items-center  from-blue-500/20 to-transparent rounded-lg">
+            <div className="aspect-[4/3] md:aspect-square flex justify-center items-center  from-blue-500/20 to-transparent rounded-lg">
               <svg
                 style={{
                   filter: "drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))",
                 }}
                 version="1.0"
                 xmlns="http://www.w3.org/2000/svg"
-                width="65%"
+                width="55%"
                 height="100%"
                 viewBox="0 0 466.000000 461.000000"
                 preserveAspectRatio="xMidYMid meet"

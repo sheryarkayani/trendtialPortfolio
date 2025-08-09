@@ -234,22 +234,25 @@ const BuildRevenueMachine = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-center mb-12 md:mb-20"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
             Additional services
           </h2>
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
+          <p className="text-gray-400 text-base md:text-xl max-w-3xl mx-auto">
             Transform your social media into a revenue generating machine with
             premium add ons
           </p>
+          <p className="text-gray-500 text-sm max-w-2xl mx-auto mt-3">
+            Tap a service on the left to see how it compounds reach, trust and revenue on the right.
+          </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12">
           
           {/* Services List */}
           <motion.div 
-            className="lg:col-span-4 space-y-4"
+            className="lg:col-span-4 space-y-3 md:space-y-4"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -272,6 +275,18 @@ const BuildRevenueMachine = () => {
           <div className="lg:col-span-8">
             <ServiceDetail service={services[selectedService]} />
           </div>
+        </div>
+
+        {/* Mobile sticky CTA */}
+        <div className="lg:hidden sticky bottom-4 mt-6">
+          <button
+            data-cal-namespace="30min"
+            data-cal-link="trendtial-creators/30min"
+            data-cal-config='{"layout":"month_view","theme":"dark"}'
+            className="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-xl font-semibold shadow-lg shadow-red-500/20"
+          >
+            Talk to an expert
+          </button>
         </div>
       </div>
     </section>

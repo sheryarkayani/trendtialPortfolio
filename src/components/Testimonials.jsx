@@ -105,43 +105,23 @@ const Testimonials = () => {
         </motion.div>
 
         {/* Animated Testimonials Carousel */}
-        <div className="relative">
-          {/* First Row - Moving Right to Left */}
+        <div className="relative overflow-hidden">
+          {/* Single Row - Moving Right to Left */}
           <motion.div
             animate={{ x: [0, -100 * testimonials.length] }}
             transition={{
-              duration: 30,
-              repeat: Infinity,
-              ease: "linear",
-              repeatType: "loop"
-            }}
-            className="flex mb-8"
-          >
-            {[...testimonials, ...testimonials].map((testimonial, index) => (
-              <TestimonialCard 
-                key={`first-${index}`} 
-                testimonial={testimonial} 
-                index={index % testimonials.length} 
-              />
-            ))}
-          </motion.div>
-
-          {/* Second Row - Moving Left to Right (slower) */}
-          <motion.div
-            animate={{ x: [-100 * testimonials.length, 0] }}
-            transition={{
-              duration: 35,
+              duration: 28,
               repeat: Infinity,
               ease: "linear",
               repeatType: "loop"
             }}
             className="flex"
           >
-            {[...testimonials.slice(3), ...testimonials.slice(3)].map((testimonial, index) => (
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
               <TestimonialCard 
-                key={`second-${index}`} 
+                key={`row-${index}`} 
                 testimonial={testimonial} 
-                index={index % 3} 
+                index={index % testimonials.length} 
               />
             ))}
           </motion.div>
