@@ -81,13 +81,13 @@ const ServiceDetail = ({ service }) => (
       <div className="bg-gradient-to-br from-gray-900/80 to-black border border-red-500/20 rounded-3xl p-8 md:p-10 shadow-2xl shadow-red-500/10">
         
         {/* Header with animated icon */}
-        <div className="flex items-center mb-8">
+        <div className="flex items-start md:items-center mb-8">
           <motion.div
             key={service.title + "-icon"}
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.3 }}
-            className="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mr-6 shadow-lg shadow-red-500/20"
+            className="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mr-6 shadow-lg shadow-red-500/20 flex-shrink-0"
           >
             <div className="text-white text-3xl">{service.iconComponent}</div>
           </motion.div>
@@ -107,7 +107,7 @@ const ServiceDetail = ({ service }) => (
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index + 0.2, duration: 0.5 }}
-                className="text-base md:text-lg"
+                className="text-base"
               >
                 {paragraph}
               </motion.p>
@@ -128,7 +128,7 @@ const ServiceDetail = ({ service }) => (
                   transition={{ delay: 0.1 * index + 0.4, duration: 0.5 }}
                   className="flex items-start bg-red-500/10 rounded-lg p-3 border border-red-500/20"
                 >
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <div className="w-2 h-2 bg-red-500 rounded-full mt-1.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-300 leading-relaxed text-sm">
                     {point}
                   </span>
@@ -146,7 +146,7 @@ const ServiceDetail = ({ service }) => (
           className="border-t border-red-500/20 pt-8"
         >
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="mb-4 md:mb-0">
+            <div className="mb-4 md:mb-0 text-center md:text-left">
               <p className="text-white font-semibold mb-1">Ready to accelerate your growth?</p>
               <p className="text-gray-400 text-sm">Talk to our experts about this service</p>
             </div>
@@ -270,11 +270,11 @@ const BuildRevenueMachine = () => {
           />
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Services Grid */}
           <motion.div 
-            className="lg:col-span-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -294,7 +294,7 @@ const BuildRevenueMachine = () => {
           </motion.div>
           
           {/* Service Details */}
-          <div className="lg:col-span-2">
+          <div>
             <ServiceDetail service={services[selectedService]} />
           </div>
         </div>
