@@ -39,7 +39,7 @@ const BrandingEvolution = () => {
   ];
 
   return (
-    <section className="py-20 bg-black text-white">
+    <section className="py-20 md:py-32 bg-black relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Personal Branding has evolved: From Companies to People</h2>

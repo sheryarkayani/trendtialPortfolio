@@ -14,7 +14,7 @@ const ServiceCard = ({ service, isSelected, onClick, index }) => (
     }}
     whileHover={{ y: -8, transition: { duration: 0.2 } }}
     onClick={onClick}
-    className={`relative cursor-pointer p-6 rounded-2xl border transition-all duration-300 ${
+    className={`relative cursor-pointer p-4 md:p-6 rounded-2xl border transition-all duration-300 ${
       isSelected 
         ? 'border-red-500/50 bg-red-500/10 shadow-lg shadow-red-500/10' 
         : 'border-white/5 bg-black hover:border-white/20'
@@ -37,27 +37,24 @@ const ServiceCard = ({ service, isSelected, onClick, index }) => (
           rotate: isSelected ? 10 : 0 
         }}
         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-        className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+        className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
           isSelected ? 'bg-red-500' : 'bg-white/10'
         }`}
       >
-        <div className={`text-xl transition-colors duration-300 ${isSelected ? 'text-white' : 'text-red-400'}`}>
+        <div className={`text-lg md:text-xl transition-colors duration-300 ${isSelected ? 'text-white' : 'text-red-400'}`}>
           {service.iconComponent}
         </div>
       </motion.div>
       
       <div className="flex-1">
-        <h3 className="text-lg font-semibold text-white mb-1">{service.title}</h3>
-        <p className="text-gray-400 text-sm leading-relaxed">
-          {service.shortDescription}
-        </p>
+        <h3 className="text-base md:text-lg font-semibold text-white mb-1">{service.title}</h3>
       </div>
       
       {/* Selection indicator arrow */}
       {isSelected && (
         <motion.div
           layoutId="arrow"
-          className="absolute right-6 top-1/2 -translate-y-1/2 text-red-400"
+          className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 text-red-400"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.2 }}
@@ -79,10 +76,10 @@ const ServiceDetail = ({ service }) => (
       transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
       className="sticky top-8"
     >
-      <div className="bg-black border border-white/5 rounded-3xl p-12 h-fit">
+      <div className="bg-black border border-white/5 rounded-3xl p-8 md:p-12 h-fit min-h-[600px] flex flex-col">
         
         {/* Header with animated icon */}
-        <div className="flex items-center mb-10">
+        <div className="flex items-center mb-8 md:mb-10">
           <motion.div
             key={service.title + "-icon"}
             initial={{ scale: 0.8, opacity: 0 }}
@@ -92,17 +89,18 @@ const ServiceDetail = ({ service }) => (
           >
             <div className="text-white text-3xl">{service.iconComponent}</div>
           </motion.div>
-          <h3 className="text-3xl font-bold text-white">{service.title}</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-white">{service.title}</h3>
         </div>
         
         {/* Animated description paragraphs */}
-        <div className="text-gray-300 leading-relaxed space-y-6 mb-10">
+        <div className="text-gray-300 leading-relaxed space-y-6 mb-8 flex-grow">
           {service.detailedDescription.split('\n\n').map((paragraph, index) => (
             <motion.p
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * index + 0.2, duration: 0.5 }}
+              className="text-base md:text-lg"
             >
               {paragraph}
             </motion.p>
@@ -112,7 +110,7 @@ const ServiceDetail = ({ service }) => (
         {/* Animated bullet points */}
         {service.bulletPoints && (
           <motion.div
-            className="space-y-4"
+            className="space-y-4 mb-8"
           >
             {service.bulletPoints.map((point, index) => (
               <motion.div
@@ -130,6 +128,25 @@ const ServiceDetail = ({ service }) => (
             ))}
           </motion.div>
         )}
+
+        {/* Add relevant graphic/visual element */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
+          className="mt-auto pt-8 border-t border-gray-700/30"
+        >
+          <div className="flex items-center justify-center">
+            <div className="relative w-full max-w-sm">
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-transparent rounded-xl blur-xl"></div>
+              <div className="relative bg-gradient-to-r from-gray-900 to-black border border-red-500/20 rounded-xl p-6 text-center">
+                <div className="text-red-400 text-4xl mb-2">📈</div>
+                <p className="text-white font-semibold mb-1">Revenue Growth</p>
+                <p className="text-gray-400 text-sm">Automated & Optimized</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   </AnimatePresence>
@@ -205,7 +222,7 @@ const BuildRevenueMachine = () => {
   ];
 
   return (
-    <section className="py-32 bg-black relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-black relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
       
@@ -217,21 +234,22 @@ const BuildRevenueMachine = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
-          <h2 className="text-5xl font-bold mb-6 text-white">
-            Revenue Machine
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+            Additional services
           </h2>
-          <p className="text-gray-400 text-xl max-w-3xl mx-auto">
-            Transform your business into a revenue-generating machine
+          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
+            Transform your social media into a revenue generating machine with
+            premium add ons
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
           
           {/* Services List */}
           <motion.div 
-            className="lg:col-span-2 space-y-4"
+            className="lg:col-span-4 space-y-4"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -251,7 +269,7 @@ const BuildRevenueMachine = () => {
           </motion.div>
           
           {/* Service Details */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-8">
             <ServiceDetail service={services[selectedService]} />
           </div>
         </div>

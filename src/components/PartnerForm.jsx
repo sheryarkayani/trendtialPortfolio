@@ -1,27 +1,29 @@
 import React from "react";
-
+import Img from "/Images/review/img2.jpg";
 const PartnerForm = () => {
   return (
     <div className="flex relative justify-center items-center pb-16 min-h-screen bg-black px-4 sm:px-6">
-      <div className="relative bg-gradient-to-r from-blue-500/20 to-gray-800/10 text-white rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row shadow-2xl w-full max-w-6xl">
+      <div className="relative text-white rounded-3xl p-4 md:p-6 lg:p-10 flex flex-col md:flex-row shadow-2xl w-full max-w-6xl">
         {/* Left Section */}
         <div className="w-full md:w-[50%] mb-6 md:mb-0 flex flex-col justify-center px-0 sm:px-4">
-          <h2 className="text-lg font-medium uppercase tracking-wide mb-2">
-            Let's Begin
-          </h2>
-          <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight mb-6">
-            Ready to Get Started?
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight mb-4 md:mb-6">
+            Unlock Your Brand's Potential
           </h1>
-          <p className="text-gray-300 leading-relaxed mb-8">
-            Fill in your details below and our team will reach out with a
-            customized enablement pack tailored just for you.
+          <p className="text-gray-300 leading-relaxed mb-6 md:mb-8">
+            Let us help you create a powerful brand that resonates with your
+            audience.
           </p>
+          <img
+            src={Img}
+            alt="Brand-Boosting Content"
+            className="w-full h-auto object-cover rounded-lg shadow-lg"
+          />
         </div>
 
         {/* Right Section */}
         <div
           style={{ backdropFilter: "blur(10px)" }}
-          className="w-full md:w-[50%] bg-[#dc26250f] rounded-lg p-6 sm:p-8"
+          className="w-full md:w-[50%] bg-[#dc26250f] rounded-lg p-4 md:p-6 lg:p-8"
         >
           <form>
             {/* First and Last Name */}

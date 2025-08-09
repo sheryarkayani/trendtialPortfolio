@@ -79,7 +79,7 @@ const WhoThisIsFor = () => {
   ];
 
   return (
-    <section className="py-32 bg-black relative">
+    <section className="py-20 md:py-32 bg-black relative">
       
       <div className="max-w-7xl mx-auto px-8 relative z-10">
         
@@ -89,7 +89,7 @@ const WhoThisIsFor = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <h2 className="text-4xl font-bold mb-6 text-white">
             Who this is for

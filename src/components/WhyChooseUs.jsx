@@ -7,11 +7,11 @@ const WhyChooseUs = () => {
   const y1 = useTransform(scrollYProgress, [0, 1], [-150, 150]);
   const y2 = useTransform(scrollYProgress, [0, 1], [150, -150]);
 
-  const title = "Why Choose Our Services?";
+  const title = "Why build a personal brand?";
   const coreMessage = "Corporate brands die, personal brands compound.";
 
   return (
-    <section className="py-32 bg-black relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-black relative overflow-hidden">
       
       {/* Animated background elements for parallax depth */}
       <motion.div
@@ -30,7 +30,7 @@ const WhyChooseUs = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <h2 className="text-4xl font-bold mb-6 text-white">
             {title.split('').map((char, index) => (
@@ -182,33 +182,6 @@ const WhyChooseUs = () => {
           </motion.p>
         </motion.div>
         
-        {/* CTA with shimmer effect */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <motion.button
-            whileHover={{ 
-              scale: 1.03,
-              boxShadow: "0 20px 40px rgba(239, 68, 68, 0.2)"
-            }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2 }}
-            data-cal-namespace="30min"
-            data-cal-link="trendtial-creators/30min"
-            data-cal-config='{"layout":"month_view","theme":"dark"}'
-            className="bg-red-500 hover:bg-red-600 text-white px-12 py-4 rounded-2xl font-semibold text-lg transition-colors duration-300 flex items-center space-x-3 mx-auto relative overflow-hidden group"
-          >
-            <span className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-700 group-hover:left-[100%]" />
-            <span className="relative flex items-center">
-              <FaRocket className="mr-3" />
-              <span>BUILD MY REVENUE MACHINE</span>
-            </span>
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );

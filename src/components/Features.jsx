@@ -77,7 +77,7 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-32 bg-black relative">
+    <section id="features" className="py-20 md:py-32 bg-black relative">
       
       <div className="max-w-6xl mx-auto px-8 relative z-10">
         
@@ -87,7 +87,7 @@ const Features = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <h2 className="text-4xl font-bold mb-6 text-white">
             What We Offer
@@ -103,7 +103,7 @@ const Features = () => {
         </motion.div>
 
         {/* Two-column grid with proper spacing */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
           {features.map((feature, index) => (
             <FeatureCard key={index} {...feature} index={index} />
           ))}

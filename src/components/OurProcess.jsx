@@ -98,7 +98,7 @@ const OurProcess = () => {
   ];
 
   return (
-    <section className="py-32 bg-black relative">
+    <section className="py-20 md:py-32 bg-black relative">
       
       <div className="max-w-7xl mx-auto px-8 relative z-10">
         

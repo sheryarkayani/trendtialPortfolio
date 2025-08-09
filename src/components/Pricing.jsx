@@ -28,7 +28,13 @@ const PricingCard = ({ plan, isPopular, index }) => (
     )}
     <div className="flex-grow">
       <h3 className="text-2xl font-semibold text-white mb-2">{plan.name}</h3>
-      <p className="text-gray-400 text-sm mb-6">{plan.description}</p>
+      <p className="text-gray-400 text-sm mb-4">{plan.description}</p>
+      
+      <div className="mb-6">
+        <span className="text-3xl font-bold text-white">${plan.price}</span>
+        <span className="text-gray-400 text-sm ml-1">/month</span>
+      </div>
+
       <ul className="space-y-3 mb-8">
         {plan.features.map((feature, i) => (
           <motion.li 
@@ -55,7 +61,7 @@ const PricingCard = ({ plan, isPopular, index }) => (
       data-cal-config='{"layout":"month_view","theme":"dark"}'
       className={`w-full mt-auto ${isPopular ? 'bg-red-500 hover:bg-red-600' : 'bg-white/10 hover:bg-white/20'} text-white px-6 py-3 rounded-xl font-semibold transition-colors duration-300`}
     >
-      Get Started
+      Book a Call
     </motion.button>
   </motion.div>
 );
@@ -64,48 +70,66 @@ const Pricing = () => {
   const plans = [
     {
       name: "Starter",
+      price: "800",
       description: "Perfect for getting started with social media",
       features: [
         "10 shorts plus 5 carousels/text posts",
-        "One platform optimization",
-        "Basic content strategy",
-        "Monthly performance report"
+        "One platform",
+        "Onboarding/Review Calls",
+        "Research",
+        "Scripting",
+        "Editing",
+        "Uploading",
+        "24/7 Weekday Email Support",
+        "Monthly Reports",
+        "BONUS: Optimize Your Profile Checklist"
       ]
     },
     {
       name: "Growth",
+      price: "1100",
       description: "Best for expanding your reach across platforms",
       features: [
         "15 shorts plus 5 carousels",
         "Two platforms (repurposing included)",
-        "Advanced content strategy",
-        "Weekly performance reports",
-        "Community management"
+        "Onboarding/Review Calls",
+        "Research",
+        "Scripting",
+        "Editing",
+        "Uploading",
+        "24/7 Weekday Email Support",
+        "Monthly Reports",
+        "BONUS: Optimize Your Profile Checklist"
       ]
     },
     {
       name: "Scale",
+      price: "1500",
       description: "For serious growth and maximum impact",
       features: [
         "25 shorts plus 5 carousels",
-        "Three platforms optimization",
-        "Premium content strategy",
-        "Daily performance monitoring",
-        "Priority support",
-        "Monthly strategy call"
+        "Three platforms",
+        "Onboarding/Review Calls",
+        "Research",
+        "Scripting",
+        "Editing",
+        "Uploading",
+        "24/7 Weekday Email Support",
+        "Monthly Reports",
+        "BONUS: Optimize Your Profile Checklist"
       ]
     }
   ];
 
   return (
-    <section id="pricing" className="py-32 bg-black">
+    <section id="pricing" className="py-20 md:py-32 bg-black">
       <div className="max-w-7xl mx-auto px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <h2 className="text-4xl font-bold text-white mb-6">
             Pricing

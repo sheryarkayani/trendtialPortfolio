@@ -1,8 +1,8 @@
 const DataVisuals = () => {
   return (
-    <section className="py-20 bg-black">
+    <section className="py-10 md:py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-16">
+        <h2 className="text-3xl font-bold text-center mb-10 md:mb-16">
           We execute..
           <br />
           <span className="text-gray-400">Your imagination</span>
@@ -14,86 +14,89 @@ const DataVisuals = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-       <div
-  style={{
-    transform: "translate(-50%, -50%)",
-    zIndex: 10
-  }}
-  className="absolute w-[40px] h-[40px] flex items-center justify-center top-[50%] left-[50%]"
->
-  {/* Outer Red Circle */}
-  <div
-    className="absolute w-full h-full rounded-full bg-red-500 animate-pulse"
-    style={{
-      boxShadow:
-        "0 0 20px 10px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.4)",
-    }}
-  ></div>
+          <div
+            style={{
+              transform: "translate(-50%, -50%)",
+              zIndex: 10,
+            }}
+            className="absolute w-[40px] h-[40px] flex items-center justify-center top-[50%] left-[50%] hidden md:flex"
+          >
+            {/* Outer Red Circle */}
+            <div
+              className="absolute w-full h-full rounded-full bg-red-500 animate-pulse"
+              style={{
+                boxShadow:
+                  "0 0 20px 10px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.4)",
+              }}
+            ></div>
 
-  {/* Animated Rings */}
-  <div
-    className="absolute w-[60px] h-[60px] rounded-full border-2 border-red-400 animate-spin-slow"
-    style={{
-      animationDelay: "0s",
-    }}
-  ></div>
+            {/* Animated Rings */}
+            <div
+              className="absolute w-[60px] h-[60px] rounded-full border-2 border-red-400 animate-spin-slow"
+              style={{
+                animationDelay: "0s",
+              }}
+            ></div>
 
-  {/* Waving Horizontal Line - Top */}
-  <div style={{
-    zIndex: 5
-  }} className="absolute w-[100px] h-[4px] top-[50%] left-8">
-    <div
-      className="w-full h-full bg-gradient-to-r from-transparent via-red-500 to-transparent"
-      style={{
-        maskImage:
-          "radial-gradient(circle, rgba(255,255,255,1) 70%, transparent 100%)",
-      }}
-    ></div>
-  </div>
+            {/* Waving Horizontal Line - Top */}
+            <div
+              style={{
+                zIndex: 5,
+              }}
+              className="absolute w-[100px] h-[4px] top-[50%] left-8"
+            >
+              <div
+                className="w-full h-full bg-gradient-to-r from-transparent via-red-500 to-transparent"
+                style={{
+                  maskImage:
+                    "radial-gradient(circle, rgba(255,255,255,1) 70%, transparent 100%)",
+                }}
+              ></div>
+            </div>
 
-   <div style={{
-    zIndex: 5
-  }} className="absolute w-[100px] h-[4px] top-[50%] right-8">
-    <div
-      className="w-full h-full bg-gradient-to-r from-transparent via-red-500 to-transparent"
-      style={{
-        maskImage:
-          "radial-gradient(circle, rgba(255,255,255,1) 70%, transparent 100%)",
-      }}
-    ></div>
-  </div>
+            <div
+              style={{
+                zIndex: 5,
+              }}
+              className="absolute w-[100px] h-[4px] top-[50%] right-8"
+            >
+              <div
+                className="w-full h-full bg-gradient-to-r from-transparent via-red-500 to-transparent"
+                style={{
+                  maskImage:
+                    "radial-gradient(circle, rgba(255,255,255,1) 70%, transparent 100%)",
+                }}
+              ></div>
+            </div>
 
- 
+            {/* SVG */}
+            <svg
+              style={{
+                transform: "translate(-50%, -50%)",
+                zIndex: 100,
+              }}
+              className="absolute top-[50%] left-[49%] flex justify-center w-full h-full"
+              version="1.0"
+              xmlns="http://www.w3.org/2000/svg"
+              width="150px"
+              height="150px"
+              viewBox="0 0 181.000000 195.000000"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <g
+                transform="translate(0.000000,195.000000) scale(0.100000,-0.100000)"
+                fill="#ffffff"
+                stroke="none"
+              >
+                <path d="M487 1563 c-4 -3 -7 -235 -7 -515 0 -561 -2 -543 64 -616 47 -52 115 -84 170 -80 l41 3 0 75 0 74 -38 9 c-23 6 -45 20 -57 37 -19 27 -20 42 -18 247 l3 218 75 5 75 5 3 82 3 82 -78 3 -78 3 -3 188 -2 187 -74 0 c-40 0 -76 -3 -79 -7z" />
+                <path d="M1233 1171 c-113 -39 -216 -132 -264 -239 -13 -30 -24 -84 -30 -147 -10 -111 -9 -418 1 -435 4 -7 35 -10 81 -8 l74 3 5 245 c4 206 8 250 22 276 47 86 118 137 220 158 l63 13 3 76 3 77 -63 0 c-35 -1 -86 -9 -115 -19z" />
+                <path d="M1278 524 c-35 -19 -48 -43 -48 -92 0 -33 6 -45 32 -67 27 -23 39 -26 72 -22 98 13 120 145 31 182 -42 18 -53 18 -87 -1z" />
+              </g>
+            </svg>
+          </div>
 
-  {/* SVG */}
-  <svg
-    style={{
-      transform: "translate(-50%, -50%)",
-      zIndex: 100
-    }}
-    className="absolute top-[50%] left-[49%] flex justify-center w-full h-full"
-    version="1.0"
-    xmlns="http://www.w3.org/2000/svg"
-    width="150px"
-    height="150px"
-    viewBox="0 0 181.000000 195.000000"
-    preserveAspectRatio="xMidYMid meet"
-  >
-    <g
-      transform="translate(0.000000,195.000000) scale(0.100000,-0.100000)"
-      fill="#ffffff"
-      stroke="none"
-    >
-      <path d="M487 1563 c-4 -3 -7 -235 -7 -515 0 -561 -2 -543 64 -616 47 -52 115 -84 170 -80 l41 3 0 75 0 74 -38 9 c-23 6 -45 20 -57 37 -19 27 -20 42 -18 247 l3 218 75 5 75 5 3 82 3 82 -78 3 -78 3 -3 188 -2 187 -74 0 c-40 0 -76 -3 -79 -7z" />
-      <path d="M1233 1171 c-113 -39 -216 -132 -264 -239 -13 -30 -24 -84 -30 -147 -10 -111 -9 -418 1 -435 4 -7 35 -10 81 -8 l74 3 5 245 c4 206 8 250 22 276 47 86 118 137 220 158 l63 13 3 76 3 77 -63 0 c-35 -1 -86 -9 -115 -19z" />
-      <path d="M1278 524 c-35 -19 -48 -43 -48 -92 0 -33 6 -45 32 -67 27 -23 39 -26 72 -22 98 13 120 145 31 182 -42 18 -53 18 -87 -1z" />
-    </g>
-  </svg>
-</div>
-
-
-          <div className="rounded-2xl bg-[#1a1d2352] border border-white/10 p-8">
-            <h3 className="text-xl font-semibold mb-6 text-center">
+          <div className="rounded-2xl bg-[#1a1d2352] border border-white/10 p-6 md:p-8">
+            <h3 className="text-xl font-semibold mb-4 md:mb-6 text-center">
               Your Vision
             </h3>
             <div className="flex items-center justify-center aspect-square from-blue-500/20 to-transparent rounded-lg">
@@ -168,8 +171,8 @@ const DataVisuals = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl bg-[#1a1d2352] border border-white/10 p-8">
-            <h3 className="text-xl font-semibold mb-6 text-center">
+          <div className="rounded-2xl bg-[#1a1d2352] border border-white/10 p-6 md:p-8">
+            <h3 className="text-xl font-semibold mb-4 md:mb-6 text-center">
               Our Execution
             </h3>
             <div className="aspect-square flex justify-center items-center  from-blue-500/20 to-transparent rounded-lg">
@@ -240,8 +243,7 @@ c469 -102 847 -358 1101 -746 469 -718 340 -1676 -301 -2238 -417 -366 -970
 347 83 246 307 418 546 420 45 0 106 -4 135 -10z"
                   />
                   <path
-                    d="M2208 2486 c-87 -23 -160 -100 -173 -183 -10 -61 10 -143 45 -185
-130 -158 389 -86 416 115 22 158 -132 293 -288 253z"
+                    d="M2208 2486 c-87 -23 -160 -100 -173 -183 -10 -61 10 -143 45 -185 130 -158 389 -86 416 115 22 158 -132 293 -288 253z"
                   />
                 </g>
               </svg>

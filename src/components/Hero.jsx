@@ -4,7 +4,7 @@ import HeroBg2 from "../assets/hero-bg-2.png";
 
 const Hero = () => {
   return (
-    <section className="relative flex flex-col justify-center lg:h-[100vh] sm:h-[50vh] pt-20 pb-28">
+    <section className="relative flex flex-col justify-center lg:h-[100vh] sm:h-[50vh] pt-20 pb-16 md:pb-28">
       <div className="absolute inset-0 bg-black">
         <div className="absolute inset-0 bg-gradient-radial from-red-500/30 via-transparent to-transparent opacity-50" />
       </div>
