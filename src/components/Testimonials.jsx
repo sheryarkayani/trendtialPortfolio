@@ -41,40 +41,52 @@ const TestimonialCard = ({ testimonial, index }) => (
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Sarah Chen",
-      title: "Tech CEO & Founder",
-      initials: "SC",
-      text: "Working with Trendtial transformed my LinkedIn presence completely. From 25K to 120K followers in just 8 months, and the quality of leads has been incredible. They really understand personal branding for tech leaders."
+      name: "Ahmed Rashid",
+      title: "Co-Founder, Tez Financial Services",
+      initials: "AR",
+      text: "Trendtial transformed how we communicate our fintech solutions on LinkedIn. Our thought leadership content now reaches 50K+ monthly impressions, directly contributing to our Series A funding success."
     },
     {
-      name: "Marcus Rodriguez",
-      title: "Financial Advisor",
-      initials: "MR",
-      text: "The team helped me build trust and credibility in the financial space. My client acquisition has increased by 300% and I'm now seen as a thought leader in my field. Best investment I've made for my business."
+      name: "Fatima Khan",
+      title: "CEO, EduTech Solutions",
+      initials: "FK",
+      text: "As an edtech founder, building trust with parents and students was crucial. The team helped us create authentic content that showcased our impact. Our enrollment increased by 180% in 6 months."
     },
     {
-      name: "Emily Johnson",
-      title: "Executive Coach",
-      initials: "EJ",
-      text: "Their content strategy is phenomenal. They turned my expertise into engaging stories that resonate with my audience. My personal brand has never been stronger, and it's directly impacted my business growth."
+      name: "Hassan Ali",
+      title: "Founder, AgriConnect",
+      initials: "HA",
+      text: "Positioning ourselves in the agtech space seemed impossible until we worked with Trendtial. Their content strategy helped us secure partnerships with major farming cooperatives across Punjab."
     },
     {
-      name: "David Park",
-      title: "SaaS Founder",
-      initials: "DP",
-      text: "The ROI on personal branding is unmatched. Trendtial helped me position myself as an authority in the SaaS space, leading to speaking opportunities, partnerships, and significant business growth."
+      name: "Zara Mahmood",
+      title: "Co-Founder, HealthTech Innovations",
+      initials: "ZM",
+      text: "The healthcare sector demands credibility. Trendtial's approach to content helped us establish authority, leading to strategic partnerships with hospitals and a successful exit to a multinational."
     },
     {
-      name: "Lisa Thompson",
-      title: "Management Consultant",
-      initials: "LT",
-      text: "Professional, strategic, and results-driven. They don't just create content - they build authentic personal brands that attract the right opportunities. Highly recommend their services."
+      name: "Omar Siddique",
+      title: "CEO, LogiPak Solutions",
+      initials: "OS",
+      text: "Our logistics startup needed visibility in a crowded market. The personal branding strategy opened doors to enterprise clients and investors. We closed our largest deal after a client saw our LinkedIn content."
     },
     {
-      name: "James Wilson",
-      title: "Real Estate Investor",
-      initials: "JW",
-      text: "From unknown to industry influencer in less than a year. Their approach to personal branding is sophisticated and effective. The quality of opportunities that come my way has completely changed."
+      name: "Ayesha Tariq",
+      title: "Founder, RetailTech Pro",
+      initials: "AT",
+      text: "Building a SaaS for retail in Pakistan required establishing trust with traditional business owners. Trendtial's storytelling approach helped us communicate complex tech in simple terms, tripling our customer base."
+    },
+    {
+      name: "Usman Shah",
+      title: "Co-Founder, FinanceFlow",
+      initials: "US",
+      text: "The team understood the nuances of the Pakistani market perfectly. Our content now resonates with both local businesses and international investors. Raised $2M Series A largely due to our online presence."
+    },
+    {
+      name: "Nadia Ahmed",
+      title: "CEO, WomenTech Initiative",
+      initials: "NA",
+      text: "As a woman founder in tech, visibility was my biggest challenge. Trendtial helped amplify my voice and our mission. We now have 10,000+ women in our network and partnerships with major tech companies."
     }
   ];
 

@@ -5,6 +5,7 @@ import BuildRevenueMachine from "../../components/BuildRevenueMachine";
 import DataVisuals from "../../components/DataVisuals";
 import OurProcess from "../../components/OurProcess";
 import Pricing from "../../components/Pricing";
+import ClientLogos from "../../components/ClientLogos";
 import CaseStudies from "../../components/CaseStudies";
 import Testimonials from "../../components/Testimonials";
 import BrandingEvolution from "../../components/BrandingEvolution";
@@ -23,6 +24,7 @@ const HomePage = () => {
       <DataVisuals />
       <OurProcess />
       <Pricing />
+      <ClientLogos />
       <CaseStudies />
       <Testimonials />
       <FAQ />
