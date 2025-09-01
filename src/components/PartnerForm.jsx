@@ -13,11 +13,7 @@ const PartnerForm = () => {
             Let us help you create a powerful brand that resonates with your
             audience.
           </p>
-          <img
-            src={Img}
-            alt="Brand-Boosting Content"
-            className="w-full h-auto object-cover rounded-lg shadow-lg"
-          />
+         
         </div>
 
         {/* Right Section */}
